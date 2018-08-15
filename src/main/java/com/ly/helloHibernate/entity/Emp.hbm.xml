@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.ly.helloHibernate.entity.Emp" table="emp">
+        <!-- 主键关系 -->
+        <id name="emp_id" column="emp_id" type="java.lang.Integer">
+            <!-- 主键生成策略   自动增长 -->
+            <generator class="increment" />
+        </id>
+        <!-- 普通简直映射 -->
+        <property name="ename" column="ename" type="java.lang.String"/>
+        <property name="job" column="job" type="java.lang.String"/>
+        <property name="mgr" column="mgr" type="java.lang.Integer" />
+        <property name="hireDate" column="hiredate" type="java.util.Date" />
+        <property name="sal" column="sal" type="java.lang.Double" />
+        <property name="comm" column="comm" type="java.lang.Double" />
+        
+        <!-- 多对一 -->
+        <many-to-one name="dept" column="dept_id" class="com.ly.helloHibernate.entity.Dept" />
+        
+    </class>
+</hibernate-mapping>

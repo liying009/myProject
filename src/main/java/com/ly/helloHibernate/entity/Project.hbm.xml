@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.ly.helloHibernate.entity.Project" table="project">
+        <!-- 主键关系 -->
+        <id name="project_id" column="project_id" type="java.lang.Integer">
+            <!-- 主键生成策略    -->
+            <generator class="assigned" />
+        </id>
+        <!-- 普通简直映射 -->
+        <property name="pro_name" column="pro_name" type="java.lang.String"/>
+        <property name="pro_loc" column="pro_loc" type="java.lang.String"/>
+        
+        <!-- 多对多关系 -->
+        <set name="emps" table="join1" cascade="save-update">
+            <key column="project_id" />
+            <many-to-many class="com.ly.helloHibernate.entity.Employee" column="emp_id" />
+        </set>
+    </class>
+</hibernate-mapping>

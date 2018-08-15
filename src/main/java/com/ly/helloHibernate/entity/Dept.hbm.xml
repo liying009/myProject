@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.ly.helloHibernate.entity.Dept" table="dept">
+        <!-- 主键关系 -->
+        <id name="dept_id" column="dept_id" type="java.lang.Integer">
+            <!-- 主键生成策略    -->
+            <generator class="increment" />
+        </id>
+        <!-- 普通简直映射 -->
+        <property name="dept_name" column="dept_name" type="java.lang.String"/>
+        <property name="dept_loc" column="dept_loc" type="java.lang.String"/>
+        
+        <!-- 一对多关系 -->
+        <set name="emps" cascade="all">
+            <key column="dept_id" />
+            <one-to-many class="com.ly.helloHibernate.entity.Emp" />
+        </set>
+    </class>
+</hibernate-mapping>

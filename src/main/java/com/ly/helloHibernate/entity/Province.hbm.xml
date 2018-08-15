@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.ly.helloHibernate.entity.Province" table="tb_area">
+        <!-- 主键关系 -->
+        <id name="area_id" column="area_id" type="java.lang.Integer">
+            <!-- 主键生成策略    -->
+            <generator class="increment" />
+        </id>
+        <!-- 普通简直映射 -->
+        <property name="area_name" column="area_name" type="java.lang.String"/>
+        <property name="area_level" column="area_level" type="java.lang.Integer"/>
+        <property name="parent_id" column="parent_id" type="java.lang.Integer"/>
+        
+       
+    </class>
+</hibernate-mapping>
